@@ -20,7 +20,8 @@ const forecast = (latitude, longitude, callback) => {
             const data = body.current
             const temp = data.temperature
             const tempFeel = data.feelslike
-            callback(undefined, 'it is ' + temp + ' degrees out there, but feels like ' + tempFeel + ' degrees.')
+            const weatherDesc = data.weather_descriptions[0]
+            callback(undefined, weatherDesc + ', it is ' + temp + ' degrees out there, and feels like ' + tempFeel + ' degrees.')
         }
     })
 }
